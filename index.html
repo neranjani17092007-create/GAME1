@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Courier</title>
+  </head>
+  <body>
+    <main id="game">
+      <header><span class="eyebrow">ORBITAL LOGISTICS / SECTOR 07</span><h1>COSMIC <em>COURIER</em></h1><p>One pilot. Five crystals. One way home.</p></header>
+      <aside class="status"><span>SHIP ENERGY</span><strong id="crystals" aria-live="polite">Crystals: 0/5</strong><strong id="timer">Time: 90s</strong><p id="objective">Spaceship locked. Collect all five crystals.</p><button id="restart">Restart</button></aside>
+      <div class="instructions"><b>W / ↑</b> Forward <b>S / ↓</b> Back <b>A / ←</b> Left <b>D / →</b> Right <span>•</span> <b>R</b> Restart</div>
+      <button id="mute" aria-pressed="false">Mute sound</button>
+      <div id="victory"><div class="mission-card" role="region" aria-labelledby="result-title"><span class="eyebrow" id="phase">MISSION READY</span><h2 id="result-title">Ready, courier?</h2><p id="result-message" aria-live="polite">Collect five crystals and escape within 90 seconds. Avoid the red patrol drone.</p><div id="start-controls"><h3>Flight controls</h3><p><kbd>W</kbd> <kbd>↑</kbd> Forward &nbsp; <kbd>S</kbd> <kbd>↓</kbd> Back</p><p><kbd>A</kbd> <kbd>←</kbd> Left &nbsp; <kbd>D</kbd> <kbd>→</kbd> Right</p><p><kbd>R</kbd> Restart · Keyboard required</p><p class="mission-tip">Touch crystals to collect them. The ship unlocks at 5/5. Drone contact or an empty timer ends the mission.</p></div><button id="start">Start mission</button><button id="result-restart" hidden>Restart mission</button></div></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

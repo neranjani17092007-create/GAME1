@@ -1,0 +1,50 @@
+:root { font-family: Arial, Helvetica, sans-serif; color: #eaf7ff; background: #070d19; font-synthesis: none; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100%; }
+#game { height: 100dvh; position: relative; }
+header { position: absolute; top: 28px; left: 32px; z-index: 1; pointer-events: none; }
+.eyebrow { font-size: 11px; letter-spacing: 2px; color: #b2c9da; }
+h1 { font-size: clamp(21px, 3vw, 32px); letter-spacing: 2px; margin: 12px 0; }
+h1 em { font-style: normal; color: #a7f573; }
+header p, .status p { font-size: 14px; line-height: 1.5; color: #c2d3df; }
+.status { position: absolute; right: 24px; top: 24px; z-index: 1; border: 1px solid #405770; border-left: 3px solid #a7f573; background: #0c172be8; border-radius: 8px; padding: 16px; width: 250px; }
+.status > span { font-size: 11px; letter-spacing: 2px; color: #c2d3df; }
+.status strong { display: block; font-size: 24px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.status .urgent { color: #ffb0a8; }
+.status button { margin: 0; padding: 10px 18px; }
+.instructions { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); font-size: 13px; line-height: 1.8; text-align: center; color: #c2d3df; background: #0c172be8; border: 1px solid #405770; border-radius: 12px; padding: 12px 18px; }
+.instructions b { color: #eaf7ff; white-space: nowrap; }
+.instructions span { margin: 0 12px; color: #a7f573; }
+#victory { position: absolute; inset: 0; z-index: 3; background: #070d19db; backdrop-filter: blur(7px); display: grid; place-items: center; padding: 64px 20px 24px; overflow-y: auto; }
+.mission-card { width: min(100%, 580px); text-align: center; border: 1px solid #405770; border-radius: 18px; padding: clamp(20px, 4vw, 40px); background: #101d30; box-shadow: 0 24px 80px #0005; }
+h2 { font-size: clamp(30px, 5vw, 48px); line-height: 1.1; letter-spacing: -1px; margin: 18px 0; }
+#victory p { color: #c2d3df; font-size: 16px; line-height: 1.6; }
+h3 { font-size: 15px; color: #a7f573; margin: 20px 0 10px; }
+#start-controls { border-top: 1px solid #405770; margin-top: 20px; }
+#start-controls p { margin: 10px 0; }
+#start-controls .mission-tip { font-size: 14px; }
+kbd { display: inline-block; min-width: 25px; padding: 2px 5px; border: 1px solid #647b91; border-radius: 4px; font: inherit; color: #fff; background: #203149; }
+button { min-height: 44px; margin-top: 16px; background: #a7f573; border: 0; border-radius: 7px; padding: 13px 24px; color: #112019; font-size: 14px; font-weight: bold; cursor: pointer; }
+button:hover { background: #c4ffa1; }
+button:focus-visible { outline: 3px solid #8bdaf5; outline-offset: 4px; }
+#mute { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 4; margin: 0; background: #203149; color: #eaf7ff; border: 1px solid #647b91; }
+[data-state='lost'] .mission-card { border-color: #ff8d82; }
+[data-state='won'] .mission-card { border-color: #a7f573; }
+@media (max-width: 800px) {
+ header { top: 18px; left: 16px; } header .eyebrow, header p { display: none; }
+ .status { top: 78px; right: 12px; width: 210px; padding: 12px; }
+ #mute { left: auto; right: 12px; transform: none; top: 16px; }
+ .instructions { bottom: 12px; padding: 8px 12px; }
+}
+@media (max-width: 420px) {
+ header h1 { font-size: 18px; letter-spacing: 0; }
+ #mute { padding: 10px; font-size: 12px; }
+ .status { width: 180px; } .status strong { font-size: 20px; }
+ .mission-card { padding: 18px; } #victory { padding: 72px 12px 12px; }
+}
+@media (max-height: 520px) {
+ #victory { place-items: start center; } header p { display: none; }
+ .status { top: 75px; padding: 10px; } .status p { margin: 6px 0; }
+}
