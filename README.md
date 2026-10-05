@@ -3,7 +3,18 @@
 A single-player 3D browser game built with Three.js and vanilla JavaScript.
 Collect five glowing energy crystals, then return to the spaceship. Move with
 WASD or arrow keys; press R to restart. Obstacles and walls block movement.
+Click Start to begin the 90-second mission. Avoid the patrolling drone: touching
+it or running out of time causes defeat. The spaceship unlocks at five crystals.
 Everything is made from basic geometry; no external images or models are used.
+
+## Controls
+
+| Control | Action |
+| --- | --- |
+| WASD or arrow keys | Move the courier |
+| Start mission | Start the countdown |
+| R or Restart | Reset and return to the Start screen |
+| Mute sound / Unmute sound | Toggle generated audio |
 
 ## Run
 
@@ -24,6 +35,41 @@ npm run preview
 ```
 
 The production build is written to `dist/`; preview uses port 4173 by default.
+Open the `/GAME1/` path on the address printed by Vite for development or preview.
+
+## Static hosting and GitHub Pages
+
+The connected GitHub repository is
+[`neranjani17092007-create/GAME1`](https://github.com/neranjani17092007-create/GAME1).
+`vite.config.js` sets the asset base to `/GAME1/` so production JavaScript and
+CSS load under the repository subpath. There is no backend or client-side router.
+Publish the contents of `dist/`, rather than source files or `node_modules/`.
+For a host serving at its domain root, build with:
+
+```sh
+STATIC_BASE_PATH=/ npm run build
+```
+
+For a different subpath, set `STATIC_BASE_PATH=/your-path/` when building.
+
+The prepared `.github/workflows/pages.yml` builds on pushes to `main` or manual
+dispatch, uploads `dist/`, and deploys through the official Pages actions.
+To publish:
+
+1. Commit and push these hosting changes to `main` in the connected repository.
+2. In GitHub Settings → Pages, select **GitHub Actions** as the build source.
+3. In Actions, run **Deploy Cosmic Courier to GitHub Pages** if it has not started
+   automatically. Complete any required environment approval.
+4. Confirm both build and deploy jobs succeed. Open the URL reported by the
+   deployment and verify assets, Start, movement, and sound/mute in a browser.
+
+Deployment has not been performed or verified during this preparation.
+
+## Acknowledgment
+
+Developed with assistance from OpenAI Codex for implementation, interface design,
+testing, and static-hosting configuration. Graphics use original simple shapes;
+sounds are synthesized with the Web Audio API.
 
 ## Files
 
